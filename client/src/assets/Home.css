@@ -1,0 +1,157 @@
+.home-wrapper {
+  min-height: 100vh;
+  background-color: #f7fafc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.home-card {
+  background: white;
+  padding: 32px;
+  max-width: 960px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.home-heading {
+  font-size: 48px;
+  font-weight: 800;
+  color: #1a202c;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.green-text {
+  color: #38a169;
+}
+
+.home-description {
+  font-size: 18px;
+  color: #4a5568;
+  max-width: 640px;
+  margin: 0 auto 32px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.feature-card {
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.green-bg {
+  background-color: #f0fff4;
+}
+
+.blue-bg {
+  background-color: #ebf8ff;
+}
+
+.feature-heading {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.green-text {
+  color: #2f855a;
+}
+
+.blue-text {
+  color: #2b6cb0;
+}
+
+.feature-text {
+  color: #4a5568;
+}
+
+.action-button {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.green-button {
+  background-color: #38a169;
+  color: white;
+}
+
+.green-button:hover {
+  background-color: #2f855a;
+  transform: scale(1.05);
+}
+
+.blue-button {
+  background-color: #3182ce;
+  color: white;
+}
+
+.blue-button:hover {
+  background-color: #2b6cb0;
+  transform: scale(1.05);
+}
+
+.testimonials {
+  margin-top: 40px;
+}
+
+.testimonial-heading {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 24px;
+}
+
+.testimonial-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .testimonial-container {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.testimonial {
+  background-color: #edf2f7;
+  border-left: 4px solid #ecc94b;
+  padding: 24px;
+  border-radius: 8px;
+  max-width: 320px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  font-style: italic;
+  color: #4a5568;
+}
+
+.testimonial footer {
+  margin-top: 8px;
+  font-weight: 600;
+  color: #2d3748;
+}

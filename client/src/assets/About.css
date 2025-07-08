@@ -1,0 +1,100 @@
+.about-wrapper {
+  min-height: 100vh;
+  background-color: #f7fafc;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.about-card {
+  background: white;
+  padding: 32px;
+  max-width: 960px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.about-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: #1a202c;
+  text-align: center;
+  padding-bottom: 16px;
+  margin-bottom: 32px;
+  border-bottom: 2px solid #38a169;
+}
+
+.section {
+  margin-bottom: 32px;
+}
+
+.section-heading {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2f855a;
+  margin-bottom: 16px;
+}
+
+.section p {
+  font-size: 16px;
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.philosophy-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  color: #4a5568;
+}
+
+.philosophy-list li {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .team-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.team-member {
+  background-color: #edf2f7;
+  padding: 24px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 12px;
+  border: 4px solid #c6f6d5;
+}
+
+.team-member h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.position {
+  font-size: 14px;
+  color: #4a5568;
+  margin: 6px 0;
+}
+
+.bio {
+  font-size: 14px;
+  color: #718096;
+}

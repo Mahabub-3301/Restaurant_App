@@ -1,0 +1,103 @@
+.navbar {
+  background-color: #2d3748; /* Equivalent to bg-gray-800 */
+  padding: 16px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 8px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.logo:hover {
+  background-color: #4a5568;
+  transition: background-color 0.3s ease;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  color: white;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.menu-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.menu {
+  width: 100%;
+  display: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-open {
+  display: block;
+}
+
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+@media (min-width: 768px) {
+  .menu {
+    display: flex !important;
+    align-items: center;
+    width: auto;
+  }
+
+  .menu-list {
+    flex-direction: row;
+    gap: 16px;
+    margin-top: 0;
+  }
+}
+
+.nav-link {
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  background-color: #4a5568;
+  transition: background-color 0.3s ease;
+}
+
+.book {
+  background-color: #38a169;
+}
+
+.book:hover {
+  background-color: #2f855a;
+}
+
+.admin {
+  background-color: #3182ce;
+}
+
+.admin:hover {
+  background-color: #2b6cb0;
+}
