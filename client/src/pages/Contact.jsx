@@ -12,9 +12,9 @@ export default function Contact() {
             <h2 className="section-heading">Get in Touch</h2>
             <p>Have questions, feedback, or special requests? Feel free to reach out to us or fill out the form below.</p>
             <ul className="info-list">
-              <li><strong>Address:</strong> 123 Restaurant Lane, Foodie City, State 12345</li>
-              <li><strong>Phone:</strong> +91 98765 43210</li>
-              <li><strong>Email:</strong> info@myrestaurant.com</li>
+              <li><strong>Address:</strong> 123 Restaurant Lane, Foodie City, Andhra pradesh</li>
+              <li><strong>Phone:</strong> +91 95153*****</li>
+              <li><strong>Email:</strong> bablusd750@gmail.com</li>
               <li><strong>Hours:</strong> Mon–Sat: 11 AM – 10 PM, Sun: 12 PM – 9 PM</li>
             </ul>
           </div>

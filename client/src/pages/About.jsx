@@ -32,13 +32,13 @@ export default function About() {
           <div className="team-grid">
             <div className="team-member">
               <img src="https://placehold.co/150x150/E0F2F7/0D47A1?text=Chef" alt="Head Chef" />
-              <h3>Chef Anya Sharma</h3>
+              <h3>Chef Aryan Sharma</h3>
               <p className="position">Head Chef & Culinary Director</p>
               <p className="bio">With 15+ years of experience, Chef Anya blends traditional Indian flavors and modern artistry.</p>
             </div>
             <div className="team-member">
               <img src="https://placehold.co/150x150/E0F2F7/0D47A1?text=Manager" alt="Restaurant Manager" />
-              <h3>Mr. Rahul Singh</h3>
+              <h3>Shaik Mahaboob</h3>
               <p className="position">Restaurant Manager</p>
               <p className="bio">Rahul ensures every guest has a seamless dining experience, overseeing front-of-house operations.</p>
             </div>
