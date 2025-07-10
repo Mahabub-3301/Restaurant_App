@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../assets/BookingPage.css'
+import '../assets/BookingPage.css';
 
 export default function BookingPage() {
   const [formData, setFormData] = useState({
@@ -68,121 +68,46 @@ export default function BookingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-4 flex flex-col items-center">
-      <div className="bg-white rounded-lg shadow-xl p-8 max-w-2xl w-full">
-        <h1 className="text-4xl font-extrabold text-gray-900 mb-8 text-center border-b-2 border-green-600 pb-4">Book Your Table</h1>
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label htmlFor="date" className="block text-gray-700 text-sm font-bold mb-2">Date</label>
-            <input
-              type="date"
-              id="date"
-              name="date"
-              value={formData.date}
-              onChange={handleChange}
-              className={`shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none ${errors.date ? 'border-red-500' : 'focus:ring-2 focus:ring-green-500'}`}
-              required
-            />
-            {errors.date && <p className="text-red-500 text-xs italic mt-1">{errors.date}</p>}
-          </div>
-
-          <div>
-            <label htmlFor="time" className="block text-gray-700 text-sm font-bold mb-2">Time</label>
-            <select
-              id="time"
-              name="time"
-              value={formData.time}
-              onChange={handleChange}
-              className={`shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none ${errors.time ? 'border-red-500' : 'focus:ring-2 focus:ring-green-500'}`}
-              required
-            >
-              <option value="">Select a time</option>
-              <option value="18:00">06:00 PM</option>
-              <option value="18:30">06:30 PM</option>
-              <option value="19:00">07:00 PM</option>
-              <option value="19:30">07:30 PM</option>
-              <option value="20:00">08:00 PM</option>
-              <option value="20:30">08:30 PM</option>
-              <option value="21:00">09:00 PM</option>
-            </select>
-            {errors.time && <p className="text-red-500 text-xs italic mt-1">{errors.time}</p>}
-          </div>
-
-          <div>
-            <label htmlFor="guests" className="block text-gray-700 text-sm font-bold mb-2">Number of Guests</label>
-            <input
-              type="number"
-              id="guests"
-              name="guests"
-              value={formData.guests}
-              onChange={handleChange}
-              min="1"
-              className={`shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none ${errors.guests ? 'border-red-500' : 'focus:ring-2 focus:ring-green-500'}`}
-              required
-            />
-            {errors.guests && <p className="text-red-500 text-xs italic mt-1">{errors.guests}</p>}
-          </div>
-
-          <div>
-            <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">Your Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className={`shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none ${errors.name ? 'border-red-500' : 'focus:ring-2 focus:ring-green-500'}`}
-              placeholder="Full Name"
-              required
-            />
-            {errors.name && <p className="text-red-500 text-xs italic mt-1">{errors.name}</p>}
-          </div>
-
-          <div>
-            <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className={`shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none ${errors.email ? 'border-red-500' : 'focus:ring-2 focus:ring-green-500'}`}
-              placeholder="your@example.com"
-              required
-            />
-            {errors.email && <p className="text-red-500 text-xs italic mt-1">{errors.email}</p>}
-          </div>
-
-          <div>
-            <label htmlFor="phone" className="block text-gray-700 text-sm font-bold mb-2">Phone Number</label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              className={`shadow appearance-none border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none ${errors.phone ? 'border-red-500' : 'focus:ring-2 focus:ring-green-500'}`}
-              placeholder="e.g., +91 9876543210"
-              required
-            />
-            {errors.phone && <p className="text-red-500 text-xs italic mt-1">{errors.phone}</p>}
-          </div>
-
-          <button
-            type="submit"
-            className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-md focus:outline-none focus:shadow-outline transition duration-300 transform hover:scale-105 w-full"
-          >
-            Confirm Booking
-          </button>
+    <div className="booking-container">
+      <div className="booking-card">
+        <h1 className="booking-title">Book Your Table</h1>
+        <form onSubmit={handleSubmit} className="booking-form">
+          {['date', 'time', 'guests', 'name', 'email', 'phone'].map((field) => (
+            <div key={field}>
+              <label htmlFor={field}>{field.charAt(0).toUpperCase() + field.slice(1)}</label>
+              {field === 'time' ? (
+                <select name="time" value={formData.time} onChange={handleChange} required>
+                  <option value="">Select a time</option>
+                  <option value="18:00">06:00 PM</option>
+                  <option value="18:30">06:30 PM</option>
+                  <option value="19:00">07:00 PM</option>
+                  <option value="19:30">07:30 PM</option>
+                  <option value="20:00">08:00 PM</option>
+                  <option value="20:30">08:30 PM</option>
+                  <option value="21:00">09:00 PM</option>
+                </select>
+              ) : (
+                <input
+                  type={field === 'guests' ? 'number' : field === 'email' ? 'email' : field === 'phone' ? 'tel' : field === 'date' ? 'date' : 'text'}
+                  name={field}
+                  value={formData[field]}
+                  onChange={handleChange}
+                  placeholder={field === 'name' ? 'Full Name' : field === 'email' ? 'your@example.com' : field === 'phone' ? '+91 9876543210' : ''}
+                  min={field === 'guests' ? 1 : undefined}
+                  required
+                />
+              )}
+              {errors[field] && <p className="error">{errors[field]}</p>}
+            </div>
+          ))}
+          <button type="submit" className="booking-button">Confirm Booking</button>
         </form>
-
         {message && (
-          <div className={`mt-6 p-4 rounded-md text-center ${message.includes('errors') ? 'bg-red-100 text-red-800' : 'bg-blue-100 text-blue-800'}`}>
+          <div className={`booking-message ${message.includes('errors') ? 'error-message' : 'success-message'}`}>
             {message}
           </div>
         )}
       </div>
     </div>
   );
-};
-
+}
