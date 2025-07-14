@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import '../assets/BookingPage.css';
+import axios from 'axios'
 
 export default function BookingPage() {
   const [formData, setFormData] = useState({
@@ -61,7 +62,23 @@ export default function BookingPage() {
     setMessage('');
 
     if (validateForm()) {
-      setMessage('Booking functionality is under development. Your validated data is: ' + JSON.stringify(formData));
+      const res = await axios.post("http://localhost:6969/api/bookings",{
+        date:formData.date,
+        time:formData.time,
+        guests:formData.guests,
+        name:formData.name,
+        email:formData.email,
+        phone:formData.phone
+      },{
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      console.log(res.data.message);
+
+
+      setMessage(res.data.message);
+      
     } else {
       setMessage('Please correct the errors in the form.');
     }
@@ -69,6 +86,11 @@ export default function BookingPage() {
 
   return (
     <div className="booking-container">
+      {message && (
+          <div className={`booking-message ${message.includes('errors') ? 'error-message' : 'success-message'}`}>
+            {message}
+          </div>
+        )}
       <div className="booking-card">
         <h1 className="booking-title">Book Your Table</h1>
         <form onSubmit={handleSubmit} className="booking-form">
@@ -102,11 +124,7 @@ export default function BookingPage() {
           ))}
           <button type="submit" className="booking-button">Confirm Booking</button>
         </form>
-        {message && (
-          <div className={`booking-message ${message.includes('errors') ? 'error-message' : 'success-message'}`}>
-            {message}
-          </div>
-        )}
+        
       </div>
     </div>
   );

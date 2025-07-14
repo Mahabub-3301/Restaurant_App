@@ -80,7 +80,7 @@ export default function Admin(){
         ) : (
           <div className="admin-welcome">
             <p>Welcome, Admin!</p>
-            <p className="dashboard-note">The full admin dashboard with booking management features will be implemented in Week 4.</p>
+            <p className="dashboard-note"></p>
             <button onClick={() => setIsLoggedIn(false)} className="logout-button">Logout</button>
           </div>
         )}
