@@ -1,4 +1,4 @@
-🍽️ My Restaurant Application
+🍽️ My Restaurant Booking Application
 ✨ Project Overview
 This is a full-stack web application designed for a restaurant, enabling customers to easily book tables online and providing an administrative dashboard for efficient booking management. The application is built using the MERN stack (MongoDB, Express.js, React.js, Node.js) for robust backend and dynamic frontend capabilities, with Tailwind CSS for a modern, responsive, and aesthetically pleasing user interface.
 
@@ -104,7 +104,7 @@ npm (comes with Node.js) or yarn
 MongoDB (Community Server installed locally, or access to a cloud-based MongoDB Atlas instance)
 
 1. Clone the repository
-git clone https://github.com/your-username/my-restaurant-app.git
+git clone [https://github.com/your-username/my-restaurant-app.git](https://github.com/Mahabub-3301/Restaurant-App.git)
 cd my-restaurant-app
 
 2. Backend Setup
