@@ -31,11 +31,11 @@ export default function Home() {
           <div className="testimonial-container">
             <blockquote className="testimonial">
               <p>"Absolutely delightful food and impeccable service. A must-visit!"</p>
-              <footer>— Jane Doe</footer>
+              <footer>— Manager</footer>
             </blockquote>
             <blockquote className="testimonial">
               <p>"The ambiance is perfect, and every dish was a masterpiece."</p>
-              <footer>— John Smith</footer>
+              <footer>— Mehbub</footer>
             </blockquote>
           </div>
         </div>

@@ -21,6 +21,17 @@ router.post('/bookings',async (req,res)=>{
 
 })
 
+router.get('/bookings',async(req,res)=>{
+    try{
+        const Bookings = await Booking.find();
+        res.status(200).json(Bookings);
+    }catch(error){
+        console.log(error);
+        res.status(500).json({message: 'Failed to fetch Bookings'});
+    }
+})
+
+
 module.exports=router
 
 /*

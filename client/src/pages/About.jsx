@@ -40,7 +40,7 @@ export default function About() {
               <img src="https://placehold.co/150x150/E0F2F7/0D47A1?text=Manager" alt="Restaurant Manager" />
               <h3>Shaik Mahaboob</h3>
               <p className="position">Restaurant Manager</p>
-              <p className="bio">Rahul ensures every guest has a seamless dining experience, overseeing front-of-house operations.</p>
+              <p className="bio">Mahaboob ensures every guest has a seamless dining experience, overseeing front-of-house operations.</p>
             </div>
           </div>
         </article>

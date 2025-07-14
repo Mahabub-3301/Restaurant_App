@@ -62,7 +62,7 @@ export default function BookingPage() {
     setMessage('');
 
     if (validateForm()) {
-      const res = await axios.post("http://localhost:6969/api/bookings",{
+      const res = await axios.post("/api/bookings",{
         date:formData.date,
         time:formData.time,
         guests:formData.guests,
