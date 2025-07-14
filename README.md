@@ -114,7 +114,7 @@ This project leverages the following technologies:
 
 The project follows a clear separation of concerns with distinct frontend and backend directories:
 
-
+<pre>
 /Restaurant_App
 ├── /client/              # React + Vite frontend application
 │   ├── public/
@@ -138,7 +138,7 @@ The project follows a clear separation of concerns with distinct frontend and ba
 │   └── package.json
 ├── .gitignore            # Specifies intentionally untracked files
 └── README.md             # This file
-
+</pre>
 
 <br>
 
