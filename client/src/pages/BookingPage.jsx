@@ -78,6 +78,7 @@ export default function Booking() {
 
 
       setMessage(res.data.message);
+      alert(res.data.message);
       
     } else {
       setMessage('Please correct the errors in the form.');

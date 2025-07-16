@@ -3,9 +3,6 @@ const router = express.Router()
 const Booking = require('../models/Booking')
 
 router.post('/bookings',async (req,res)=>{
-    
-    console.log(req.body);
-
     const {date,time, guests ,name, email,phone} = req.body
 
     if(!date || !time || !name || !guests || !email || !phone){
@@ -20,6 +17,8 @@ router.post('/bookings',async (req,res)=>{
 
 
 })
+
+
 
 router.get('/bookings',async(req,res)=>{
     try{

@@ -2,7 +2,7 @@ const express = require('express');
 const { register, login, getProfile } = require('../controllers/authController');
 const { validateRegister, validateLogin, handleValidation } = require('../middleware/validationMiddleware');
 const { authenticate } = require('../middleware/authMiddleware');
-const Order = require('../models/Order')
+const Order = require('../models/Booking')
 
 const router = express.Router();
 
