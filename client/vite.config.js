@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:6969',
+        target: 'https://restaurant-app-163i.onrender.com',
         changeOrigin: true,
         secure: false
       }
