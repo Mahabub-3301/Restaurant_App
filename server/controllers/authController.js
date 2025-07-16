@@ -1,10 +1,11 @@
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
-import User from '../models/User.js';
-import { validationResult } from 'express-validator';
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const User = require('../models/User');
+const { validationResult } = require('express-validator');
+
 
 // User registration
-export const register = async (req, res) => {
+const register = async (req, res) => {
   // Validate request body
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -21,14 +22,14 @@ export const register = async (req, res) => {
     }
 
     // Hash password
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
+    //const salt = await bcrypt.genSalt(10);
+    //const hashedPassword = await bcrypt.hash(password, salt);
 
     // Create new user
     const newUser = new User({
       name,
       email,
-      password: hashedPassword,
+      password,
       role
     });
 
@@ -58,7 +59,7 @@ export const register = async (req, res) => {
 };
 
 // User login
-export const login = async (req, res) => {
+const login = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
@@ -75,15 +76,21 @@ export const login = async (req, res) => {
 
     // Verify password
     const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
+    if (password!=user.password) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
     // Generate JWT
     const token = jwt.sign(
-      { userId: user._id, role: user.role },
+      {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        createdAt: user.createdAt,
+      },
       process.env.JWT_SECRET,
-      { expiresIn: '1d' }
+      { expiresIn: '7d' }
     );
 
     res.json({
@@ -103,7 +110,7 @@ export const login = async (req, res) => {
 };
 
 // Get current user profile
-export const getProfile = async (req, res) => {
+const getProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user.userId).select('-password');
     if (!user) {
@@ -115,3 +122,9 @@ export const getProfile = async (req, res) => {
     res.status(500).json({ error: 'Server error fetching profile' });
   }
 };
+
+module.exports ={
+  getProfile,
+  login,
+  register
+}

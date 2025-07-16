@@ -1,10 +1,7 @@
-import express from 'express';
-import { 
-  createPaymentIntent, 
-  handleWebhook 
-} from '../controllers/paymentController.js';
-import { authenticate } from '../middleware/authMiddleware.js';
-import { validatePayment, handleValidation } from '../middleware/validationMiddleware.js';
+const express = require('express');
+const { createPaymentIntent, handleWebhook } = require('../controllers/paymentController');
+const { authenticate } = require('../middleware/authMiddleware');
+const { validatePayment, handleValidation } = require('../middleware/validationMiddleware');
 
 const router = express.Router();
 
@@ -14,4 +11,4 @@ router.post('/create-intent', authenticate, validatePayment, handleValidation, c
 // Webhook endpoint (no authentication)
 router.post('/webhook', express.raw({ type: 'application/json' }), handleWebhook);
 
-export default router;
+module.exports=router;

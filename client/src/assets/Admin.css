@@ -142,3 +142,21 @@
   list-style: none;
   padding: 0;
 }
+
+.menu-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.menu-form input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+}
+
+.add-button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+

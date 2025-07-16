@@ -1,11 +1,12 @@
-import Stripe from 'stripe';
-import Order from '../models/Order.js';
-import User from '../models/User.js';
+const Stripe = require('stripe');
+const Order = require('../models/Order');
+const User = require('../models/User');
+
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 // Create payment intent
-export const createPaymentIntent = async (req, res) => {
+const createPaymentIntent = async (req, res) => {
   const { amount, currency = 'usd', metadata = {} } = req.body;
   
   try {
@@ -49,7 +50,7 @@ export const createPaymentIntent = async (req, res) => {
 };
 
 // Handle payment confirmation webhook
-export const handleWebhook = async (req, res) => {
+const handleWebhook = async (req, res) => {
   const sig = req.headers['stripe-signature'];
   let event;
 
@@ -116,3 +117,10 @@ const handlePaymentFailure = async (paymentIntent) => {
     console.error('Error handling payment failure:', error);
   }
 };
+
+module.exports ={
+  handlePaymentFailure,
+  handlePaymentSuccess,
+  createPaymentIntent,
+  handleWebhook
+}

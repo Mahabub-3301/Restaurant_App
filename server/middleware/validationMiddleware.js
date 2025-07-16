@@ -1,7 +1,7 @@
-import { body, validationResult } from 'express-validator';
+const { body, validationResult } = require('express-validator');
 
 // User registration validation
-export const validateRegister = [
+const validateRegister = [
   body('name').trim().notEmpty().withMessage('Name is required'),
   body('email')
     .trim()
@@ -14,7 +14,7 @@ export const validateRegister = [
 ];
 
 // User login validation
-export const validateLogin = [
+const validateLogin = [
   body('email')
     .trim()
     .isEmail()
@@ -24,17 +24,24 @@ export const validateLogin = [
 ];
 
 // Payment validation
-export const validatePayment = [
+const validatePayment = [
   body('amount')
     .isFloat({ min: 0.5 })
     .withMessage('Amount must be at least 0.5')
 ];
 
 // Middleware to handle validation errors
-export const handleValidation = (req, res, next) => {
+const handleValidation = (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
   next();
 };
+
+module.exports = {
+  handleValidation,
+  validateLogin,
+  validatePayment,
+  validateRegister
+}

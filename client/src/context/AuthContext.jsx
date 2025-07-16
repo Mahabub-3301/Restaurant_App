@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect, useContext } from 'react';
-import jwtDecode from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 
 const AuthContext = createContext();
 
@@ -8,9 +8,10 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    let isMounted = true;
     const initializeAuth = () => {
       const token = localStorage.getItem('token');
-      if (token) {
+      if (token && isMounted) {
         try {
           const decoded = jwtDecode(token);
           setUser(decoded);
@@ -23,11 +24,14 @@ export const AuthProvider = ({ children }) => {
     };
 
     initializeAuth();
+    return () => { isMounted = false };
   }, []);
 
-  const login = (token, userData) => {
+
+  const login = (token) => {
     localStorage.setItem('token', token);
-    setUser(userData);
+    const decoded = jwtDecode(token);
+    setUser(decoded);
   };
 
   const logout = () => {
@@ -35,13 +39,9 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
   };
 
-  const isAuthenticated = () => {
-    return !!user;
-  };
+  const isAuthenticated = () => !!user;
 
-  const hasRole = (role) => {
-    return user?.role === role;
-  };
+  const hasRole = (role) => user?.role === role;
 
   return (
     <AuthContext.Provider value={{
@@ -50,7 +50,8 @@ export const AuthProvider = ({ children }) => {
       login,
       logout,
       isAuthenticated,
-      hasRole
+      hasRole,
+      setUser
     }}>
       {children}
     </AuthContext.Provider>

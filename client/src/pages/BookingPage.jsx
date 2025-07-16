@@ -2,7 +2,7 @@ import { useState } from 'react';
 import '../assets/BookingPage.css';
 import axios from 'axios'
 
-export default function BookingPage() {
+export default function Booking() {
   const [formData, setFormData] = useState({
     date: '',
     time: '',

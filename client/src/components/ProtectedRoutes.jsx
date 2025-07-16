@@ -19,5 +19,6 @@ export const ProtectedRoute = ({ children, roles = [] }) => {
     return <Navigate to="/" replace />;
   }
 
+
   return children;
 };

@@ -1,8 +1,8 @@
-import jwt from 'jsonwebtoken';
-import User from '../models/User.js';
+const jwt =require('jsonwebtoken')
+const User =require('../models/User.js');
 
 // Authentication middleware
-export const authenticate = async (req, res, next) => {
+const authenticate = async (req, res, next) => {
   // Get token from header
   const token = req.header('Authorization')?.replace('Bearer ', '');
   
@@ -34,7 +34,7 @@ export const authenticate = async (req, res, next) => {
 };
 
 // Role-based access control
-export const authorize = (roles = []) => {
+const authorize = (roles = []) => {
   return (req, res, next) => {
     if (!roles.includes(req.user.role)) {
       return res.status(403).json({ 
@@ -44,3 +44,8 @@ export const authorize = (roles = []) => {
     next();
   };
 };
+
+module.exports = {
+  authorize,
+  authenticate
+}
