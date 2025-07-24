@@ -62,14 +62,14 @@ export default function Booking() {
     setMessage('');
 
     if (validateForm()) {
-      const res = await axios.post("/api/bookings",{
-        date:formData.date,
-        time:formData.time,
-        guests:formData.guests,
-        name:formData.name,
-        email:formData.email,
-        phone:formData.phone
-      },{
+      const res = await axios.post("/api/bookings", {
+        date: formData.date,
+        time: formData.time,
+        guests: formData.guests,
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone
+      }, {
         headers: {
           "Content-Type": "application/json"
         }
@@ -79,54 +79,72 @@ export default function Booking() {
 
       setMessage(res.data.message);
       alert(res.data.message);
-      
+
     } else {
-      setMessage('Please correct the errors in the form.');
+      const errorMsg = error.response?.data?.message || 'Booking failed. Please try again later.';
+      setMessage(errorMsg);
+      alert(errorMsg);
+      console.error('Booking Error:', error);
+  
     }
   };
 
   return (
     <div className="booking-container">
-      {message && (
+      <div className="booking-container">
+        {message && (
           <div className={`booking-message ${message.includes('errors') ? 'error-message' : 'success-message'}`}>
             {message}
           </div>
         )}
-      <div className="booking-card">
-        <h1 className="booking-title">Book Your Table</h1>
-        <form onSubmit={handleSubmit} className="booking-form">
-          {['date', 'time', 'guests', 'name', 'email', 'phone'].map((field) => (
-            <div key={field}>
-              <label htmlFor={field}>{field.charAt(0).toUpperCase() + field.slice(1)}</label>
-              {field === 'time' ? (
-                <select name="time" value={formData.time} onChange={handleChange} required>
-                  <option value="">Select a time</option>
-                  <option value="18:00">06:00 PM</option>
-                  <option value="18:30">06:30 PM</option>
-                  <option value="19:00">07:00 PM</option>
-                  <option value="19:30">07:30 PM</option>
-                  <option value="20:00">08:00 PM</option>
-                  <option value="20:30">08:30 PM</option>
-                  <option value="21:00">09:00 PM</option>
-                </select>
-              ) : (
-                <input
-                  type={field === 'guests' ? 'number' : field === 'email' ? 'email' : field === 'phone' ? 'tel' : field === 'date' ? 'date' : 'text'}
-                  name={field}
-                  value={formData[field]}
-                  onChange={handleChange}
-                  placeholder={field === 'name' ? 'Full Name' : field === 'email' ? 'your@example.com' : field === 'phone' ? '+91 9876543210' : ''}
-                  min={field === 'guests' ? 1 : undefined}
-                  required
-                />
-              )}
-              {errors[field] && <p className="error">{errors[field]}</p>}
-            </div>
-          ))}
-          <button type="submit" className="booking-button">Confirm Booking</button>
-        </form>
-        
+
+        <div className="booking-layout">
+          <div className="booking-card">
+            <h1 className="booking-title">Book a Table</h1>
+            <form onSubmit={handleSubmit} className="booking-form">
+              {
+                ['date', 'time', 'guests', 'name', 'email', 'phone'].map((field) => (
+                  <div key={field}>
+                    <label htmlFor={field}>{field.charAt(0).toUpperCase() + field.slice(1)}</label>
+                    {field === 'time' ? (
+                      <select name="time" value={formData.time} onChange={handleChange} required>
+                        <option value="">Select a time</option>
+                        <option value="18:00">06:00 PM</option>
+                        <option value="18:30">06:30 PM</option>
+                        <option value="19:00">07:00 PM</option>
+                        <option value="19:30">07:30 PM</option>
+                        <option value="20:00">08:00 PM</option>
+                        <option value="20:30">08:30 PM</option>
+                        <option value="21:00">09:00 PM</option>
+                      </select>
+                    ) : (
+                      <input
+                        type={field === 'guests' ? 'number' : field === 'email' ? 'email' : field === 'phone' ? 'tel' : field === 'date' ? 'date' : 'text'}
+                        name={field}
+                        value={formData[field]}
+                        onChange={handleChange}
+                        placeholder={field === 'name' ? 'Full Name' : field === 'email' ? 'your@example.com' : field === 'phone' ? '+91 9876543210' : ''}
+                        min={field === 'guests' ? 1 : undefined}
+                        required
+                      />
+                    )}
+                    {errors[field] && <p className="error">{errors[field]}</p>}
+                  </div>
+                ))
+              }
+              <button type="submit" className="booking-button">Confirm Booking</button>
+            </form>
+          </div>
+
+          <div className="booking-description">
+            <h2>Why Reserve with Us?</h2>
+            <p>Enjoy an unforgettable dining experience crafted by passionate chefs. Secure your table effortlessly with real-time booking and personalized hospitality.</p>
+            <p>We welcome walk-ins, but reservations help us serve you better—whether it's a family gathering or a romantic evening.</p>
+          </div>
+        </div>
+
+
       </div>
-    </div>
-  );
+      </div>
+      );
 }

@@ -112,3 +112,37 @@
 }
 
 
+.booking-layout {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  max-width: 1080px;
+}
+
+.booking-card,
+.booking-description {
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  padding: 2rem;
+  flex: 1 1 360px;
+}
+
+.booking-description {
+  color: #2d3748;
+}
+
+.booking-description h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #1a202c;
+}
+
+.booking-description p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}

@@ -7,7 +7,7 @@ export default function Home() {
     <div className="home-wrapper">
       <div className="home-card">
         <h1 className="home-heading">
-          Welcome to <span className="green-text">My Restaurant</span>
+          Welcome to <span className="green-text">Dev Restaurant</span>
         </h1>
         <p className="home-description">
           Experience exquisite dining in a cozy ambiance. We offer a blend of traditional and modern culinary delights, crafted with passion and the freshest ingredients.

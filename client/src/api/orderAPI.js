@@ -4,8 +4,9 @@ import axios from "axios";
 
 // Fetch orders for a specific user
 export const getUserOrders = async (userId, token) => {
+  const API_URL = import.meta.env.VITE_API_URL || '/api'
   try {
-    const response = await axios.get(`/auth/orders/${userId}`, {
+    const response = await axios.get(`${API_URL}/auth/orders/:${userId}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }

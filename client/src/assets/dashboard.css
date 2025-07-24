@@ -16,13 +16,7 @@
   font-weight: bold;
 }
 
-.logout-btn {
-  color: #e60000;
-  font-weight: 500;
-  cursor: pointer;
-  background: none;
-  border: none;
-}
+
 
 .card {
   background-color: #fff;
@@ -135,4 +129,26 @@ tbody tr {
 
 .login-link:hover {
   background-color: #003d9e;
+}
+
+.logout-btn {
+  background-color: #6955e8; /* Red */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.logout-btn:hover {
+  background-color: #c0392b;
+  transform: scale(1.05);
+}
+
+.logout-btn:active {
+  transform: scale(0.98);
+  background-color: #a93226;
 }

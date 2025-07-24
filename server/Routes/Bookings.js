@@ -2,21 +2,28 @@ const express = require('express')
 const router = express.Router()
 const Booking = require('../models/Booking')
 
-router.post('/bookings',async (req,res)=>{
-    const {date,time, guests ,name, email,phone} = req.body
+router.post('/bookings', authenticate, async (req, res) => {
+  const { date, time, guests, name, email, phone } = req.body;
+  const userId = req.user?._id; // pulled from JWT middleware
 
-    if(!date || !time || !name || !guests || !email || !phone){
-        return res.status(400).json({message:"Enter the Required fields!!"})
-    }
+  if (!date || !time || !guests || !name || !email || !phone) {
+    return res.status(400).json({ message: "Enter the Required fields!!" });
+  }
 
-    const newBooking = new Booking({date,time,guests,name,email,phone})
-    await newBooking.save()
+  const newBooking = new Booking({
+    user: userId, // link to User model
+    date,
+    time,
+    guests,
+    name,
+    email,
+    phone
+  });
 
+  await newBooking.save();
+  res.status(201).json({ message: "Booking Created" });
+});
 
-    res.status(201).json({message:"Booking Created"})
-
-
-})
 
 
 

@@ -12,7 +12,7 @@ export default function Navbar({ isLogin, isAdmin }) {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/dashboard" className="logo">
-          My Restaurant
+          Dev Restaurant
         </Link>
         <ul className="menu-list">
           <li><Link to="/" className="nav-link">Home</Link></li>
@@ -22,8 +22,8 @@ export default function Navbar({ isLogin, isAdmin }) {
           <li><Link to="/booking" className="nav-link book">Book Table</Link></li>
           {isAuthenticated() && (
             <li>
-              <Link to={isAdmin ? "/admin" : "/dashboard"} className="nav-link admin">
-                {isAdmin ? "Admin" : "Dashboard"}
+              <Link to={localStorage.getItem('role')=='admin' ? "/admin" : "/dashboard"} className="nav-link admin">
+                {localStorage.getItem('role')=='admin' ? "Admin" : "Dashboard"}
               </Link>
             </li>
           )}

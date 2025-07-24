@@ -10,11 +10,20 @@ export default function About() {
         <article className="section">
           <h2 className="section-heading">Our Story</h2>
           <p>
-            Founded in 2023, My Restaurant was born from a passion for bringing authentic and innovative culinary experiences to our community. Our journey began with a simple idea: to create a space where food lovers could gather, share stories, and savor dishes crafted with the freshest local ingredients and a touch of global inspiration.
-          </p>
-          <p>
-            Over the years, we've grown from a small family-run eatery into a beloved local landmark, thanks to the support of our patrons and the dedication of our incredible team. We believe dining is more than just eating — it's an experience, a celebration of flavors, and a chance to create lasting memories.
-          </p>
+        This full-stack restaurant application was developed as part of my internship at <strong>InterPro IT</strong>,
+        showcasing practical skills in MERN stack development, deployment, and secure backend implementation.
+      </p>
+      <p>
+        The project simulates a complete restaurant experience — including menu listings, table bookings, user interactions,
+        and admin functionality — built with scalability and user experience in mind.
+      </p>
+      <p>
+        Core features include dynamic routing, MongoDB data management, Stripe integration, and responsive UI design using modern frontend practices.
+      </p>
+      <p>
+        From writing efficient backend logic to deploying on platforms like Render and integrating tools like Cloudflare Tunnel,
+        this internship has been a hands-on journey in bringing professional-grade applications to life.
+      </p>
         </article>
 
         <article className="section">
@@ -28,22 +37,30 @@ export default function About() {
         </article>
 
         <article className="section">
-          <h2 className="section-heading">Meet Our Team</h2>
-          <div className="team-grid">
-            <div className="team-member">
-              <img src="https://placehold.co/150x150/E0F2F7/0D47A1?text=Chef" alt="Head Chef" />
-              <h3>Chef Aryan Sharma</h3>
-              <p className="position">Head Chef & Culinary Director</p>
-              <p className="bio">With 15+ years of experience, Chef Anya blends traditional Indian flavors and modern artistry.</p>
-            </div>
-            <div className="team-member">
-              <img src="https://placehold.co/150x150/E0F2F7/0D47A1?text=Manager" alt="Restaurant Manager" />
-              <h3>Shaik Mahaboob</h3>
-              <p className="position">Restaurant Manager</p>
-              <p className="bio">Mahaboob ensures every guest has a seamless dining experience, overseeing front-of-house operations.</p>
-            </div>
-          </div>
-        </article>
+  <h2 className="section-heading">Meet Our Development Team</h2>
+  <div className="team-grid">
+    <div className="team-member">
+      <img src="https://placehold.co/150x150/E0F2F7/0D47A1?text=Mahaboob" alt="Shaik Mahaboob" />
+      <h3>Shaik Mahaboob</h3>
+      <p className="position">Full-Stack Developer & Project Lead</p>
+      <p className="bio">
+        Mahaboob spearheaded backend architecture, deployment, and UI integration for the restaurant app during his internship at InterPro IT.
+        His focus on scalability, secure systems, and clean design brought this project to life.
+      </p>
+    </div>
+
+    <div className="team-member">
+      <img src="https://placehold.co/150x150/E0F2F7/0D47A1?text=Aryan" alt="Aryan Sharma" />
+      <h3>Aryan Sharma</h3>
+      <p className="position">Full-Stack Developer</p>
+      <p className="bio">
+        Aryan crafted dynamic and responsive frontend components, refining user experience and collaborating on backend features. His attention to animation,
+        styling, and user flow gave the app its polished look and feel.
+      </p>
+    </div>
+  </div>
+</article>
+
       </section>
     </main>
   );
