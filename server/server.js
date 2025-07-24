@@ -13,11 +13,28 @@ const menuRoute = require('./Routes/menuRoute')
 const {errorHandler} = require('./utils/errorHandler')
 
 
+
+const allowedOrigins = [
+  "https://restaurant-app-163i.onrender.com",
+  "http://localhost:5173"
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
+}));
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname,'dist')));
 
-app.use(cors())
+
 app.use(morgan('dev'))
 
 app.use('/api',paymentRoute)
