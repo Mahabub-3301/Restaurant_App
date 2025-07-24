@@ -3,7 +3,7 @@ const router = express.Router()
 const Booking = require('../models/Booking')
 const { authenticate } = require('../middleware/authMiddleware');
 
-router.post('/bookings', authenticate, async (req, res) => {
+router.post('/bookings',  async (req, res) => {
   const { date, time, guests, name, email, phone } = req.body;
   const userId = req.user?._id; // pulled from JWT middleware
 
