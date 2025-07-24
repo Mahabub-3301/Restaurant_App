@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Booking = require('../models/Booking')
+const { authenticate } = require('../middleware/authMiddleware');
 
 router.post('/bookings', authenticate, async (req, res) => {
   const { date, time, guests, name, email, phone } = req.body;

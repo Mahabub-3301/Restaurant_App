@@ -12,11 +12,11 @@ const bcrypt = require('bcryptjs')
 const menuRoute = require('./Routes/menuRoute')
 const {errorHandler} = require('./utils/errorHandler')
 
-
+const allowed_origin = process.env.link;
 
 const allowedOrigins = [
   "https://restaurant-app-163i.onrender.com",
-  "http://localhost:5173"
+  allowed_origin
 ];
 
 app.use(cors({
