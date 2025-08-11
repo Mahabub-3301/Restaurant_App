@@ -1,4 +1,4 @@
-# 🍽️ My Restaurant Booking Application
+# 🍽️ Dev Restaurant Booking Application
 
 <br>
 
@@ -170,7 +170,7 @@ Ensure you have the following installed on your machine:
 
 
 git clone https://github.com/your-username/Restaurant_App.git
-cd my-restaurant-app
+cd dev-restaurant-app
 
 
 <br>
